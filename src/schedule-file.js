@@ -54,7 +54,7 @@ const CLASS_INFO = [
                 title: '中国特色社会主义理论与实践',
                 weekRange: [1, 12],
                 time: {
-                    1: {
+                    5: {
                         sectionRange: [6, 8],
                         address: '1区, 1-205',
                     },
@@ -64,7 +64,7 @@ const CLASS_INFO = [
                 title: '晶体学中的对称群',
                 weekRange: [2, 18],
                 time: {
-                    1: {
+                    5: {
                         sectionRange: [11, 13],
                         address: '1区, 1-205',
                     },
@@ -127,7 +127,7 @@ const CLASS_INFO = [
                 title: '中国特色社会主义理论与实践',
                 weekRange: [1, 12],
                 time: {
-                    1: {
+                    5: {
                         sectionRange: [6, 8],
                         address: '1区, 1-205',
                     },
@@ -137,7 +137,7 @@ const CLASS_INFO = [
                 title: '晶体学中的对称群',
                 weekRange: [2, 18],
                 time: {
-                    1: {
+                    5: {
                         sectionRange: [11, 13],
                         address: '1区, 1-205',
                     },
@@ -259,7 +259,7 @@ const CLASS_INFO = [
                 title: '中国特色社会主义理论与实践',
                 weekRange: [1, 12],
                 time: {
-                    1: {
+                    5: {
                         sectionRange: [6, 8],
                         address: '1区, 1-205',
                     },
@@ -340,7 +340,7 @@ const CLASS_INFO = [
                     },
                     3: {
                         sectionRange: [8, 9],
-                        address: '1区, 1-107',
+                        address: '1区, 3-304',
                     },
                 },
             },
@@ -361,6 +361,26 @@ const CLASS_INFO = [
                     1: {
                         sectionRange: [11, 13],
                         address: '1区, 3-304',
+                    },
+                },
+            },
+            {
+                title: '天体物理',
+                weekRange: [7, 15],
+                time: {
+                    3: {
+                        sectionRange: [11, 12],
+                        address: '1区, 5-301',
+                    },
+                },
+            },
+            {
+                title: '纳米光学',
+                weekRange: [11, 18],
+                time: {
+                    4: {
+                        sectionRange: [11, 12],
+                        address: '1区, 3-101',
                     },
                 },
             },

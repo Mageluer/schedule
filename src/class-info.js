@@ -85,6 +85,9 @@ class ClassInfo {
                                         title: t1[i][j].title + '; ' + t1[i-k][j].title,
                                         address: t1[i][j].address + '; ' + t1[i-k][j].address,
                                     };
+                                    t1[i][j] = {
+                                        rowspan: 0,
+                                    };
                                     break;
                                 }
                             }
@@ -99,8 +102,8 @@ class ClassInfo {
                                 if (t1[i-k][j].rowspan > 0) {
                                     t1[i-k][j] = {
                                         rowspan: Math.max(t1[i-k][j].rowspan, t2[i][j].rowspan+k),
-                                        title: t1[i-k][j].title + (t1[i-k][j].title.split('; ').includes(t2[i][j].title) ? '' : ('; ' + t2[i][j].title)),
-                                        address: t1[i-k][j].address + (t1[i-k][j].address.split('; ').includes(t2[i][j].address) ? '' : ('; ' + t2[i][j].address)),
+                                        title: t1[i-k][j].title + (t1[i-k][j].title.includes(t2[i][j].title) ? '' : ('; ' + t2[i][j].title)),
+                                        address: t1[i-k][j].address + (t1[i-k][j].address.includes(t2[i][j].address) ? '' : ('; ' + t2[i][j].address)),
                                     };
                                     break;
                                 }
@@ -109,7 +112,6 @@ class ClassInfo {
                     }
                 }
             }
-
             return t1;
         }
 

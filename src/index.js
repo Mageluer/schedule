@@ -101,17 +101,16 @@ class SchduleTable extends React.Component {
 }
 
 class NameButton extends React.Component {
-    renderButton(name, week, currentName) {
+    renderButton(name, currentName) {
         const C_COLOR = 'btn btn-primary waves-effect waves-light list-inline-item';
         const U_COLOR = 'btn btn-secondary waves-effect waves-light list-inline-item';
         return (
-            <li key={name} className={name===currentName ? C_COLOR : U_COLOR} onClick={() => this.props.onClick(name, week)}>
+            <li key={name} className={name===currentName ? C_COLOR : U_COLOR} onClick={() => this.props.onClick(name)}>
                 {name}
             </li>
         );
     }
     generateButtons() {
-        const week = this.props.currentWeekNum;
         const currentName = this.props.name;
         let names = ci.getNames();
         names.unshift('all');
@@ -119,7 +118,7 @@ class NameButton extends React.Component {
             <ul className="list-inline">
                 {names.map(
                     (name) =>
-                        this.renderButton(name, week, currentName)
+                        this.renderButton(name, currentName)
                 )}
             </ul>
         );
@@ -134,16 +133,15 @@ class NameButton extends React.Component {
 }
 
 class WeekPaginator extends React.Component {
-    renderWeek(name, week, currentWeekNum) {
+    renderWeek(week, currentWeekNum) {
         return (
-            <li key={week} className={'page-item'+(week===currentWeekNum?' active':'')} onClick={()=> this.props.onClick(name, week)}>
+            <li key={week} className={'page-item'+(week===currentWeekNum?' active':'')} onClick={()=> this.props.onClick(week)}>
                 <a className="page-link">{week}</a>
             </li>
         );
     }
     generateWeekPaginator() {
         const currentWeekNum = this.props.currentWeekNum;
-        const name = this.props.name;
         const TOTAL_WEEK = 18;
         const PG_LENGTH = 5;
         let weekNum = [];
@@ -159,25 +157,25 @@ class WeekPaginator extends React.Component {
         }
         const weekpg = (
             <ul className="pagination pagination-circle pg-purple mb-0">
-                <li className={'page-item clearfix d-none d-md-block'+(currentWeekNum===1?' disabled':'')}  onClick={()=> this.props.onClick(name, 1)}>
+                <li className={'page-item clearfix d-none d-md-block'+(currentWeekNum===1?' disabled':'')}  onClick={()=> this.props.onClick(1)}>
                     <a className="page-link">First</a>
                 </li>
-                <li className={'page-item'+(currentWeekNum===1?' disabled':'')} onClick={()=> this.props.onClick(name, currentWeekNum>1?currentWeekNum-1:1)}>
+                <li className={'page-item'+(currentWeekNum===1?' disabled':'')} onClick={()=> this.props.onClick(currentWeekNum>1?currentWeekNum-1:1)}>
                     <a className="page-link" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                         <span className="sr-only">Previous</span>
                     </a>
                 </li>
                 {weekNum.map(
-                    (week) => this.renderWeek(name, week, currentWeekNum)
+                    (week) => this.renderWeek(week, currentWeekNum)
                 )}
-                <li className={'page-item'+(currentWeekNum===TOTAL_WEEK?' disabled':'')} onClick={()=> this.props.onClick(name, currentWeekNum<TOTAL_WEEK?currentWeekNum+1:TOTAL_WEEK)}>
+                <li className={'page-item'+(currentWeekNum===TOTAL_WEEK?' disabled':'')} onClick={()=> this.props.onClick(currentWeekNum<TOTAL_WEEK?currentWeekNum+1:TOTAL_WEEK)}>
                     <a className="page-link" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                         <span className="sr-only">Next</span>
                     </a>
                 </li>
-                <li className={'page-item clearfix d-none d-md-block'+(currentWeekNum===TOTAL_WEEK?' disabled':'')}  onClick={()=> this.props.onClick(name, TOTAL_WEEK)}>
+                <li className={'page-item clearfix d-none d-md-block'+(currentWeekNum===TOTAL_WEEK?' disabled':'')}  onClick={()=> this.props.onClick(TOTAL_WEEK)}>
                     <a className="page-link">Last</a>
                 </li>
             </ul>
@@ -204,11 +202,33 @@ class Schedule extends React.Component {
         this.state = {
             name: 'all',
             currentWeekNum: getCurrentWeekNum(),
+            currentTime: (new Date()).getTime(),
         };
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick = (name, week) => {
+    componentDidMount() {
+      this.timerID = setInterval(
+        () => this.tick(),
+        1000
+      );
+    }
+
+    tick() {
+      this.setState({
+        currentTime: (new Date()).getTime(),
+      });
+    }
+
+    componentWillUnmount() {
+      clearInterval(this.timerID);
+    }
+
+    componentDidUpdate() {
+        ReactTooltip.rebuild();
+    }
+
+    handleClick = (name=this.state.name, week=this.state.currentWeekNum) => {
         this.setState({
             name: name,
             currentWeekNum: week,
@@ -228,7 +248,7 @@ class Schedule extends React.Component {
                         <NameButton
                             currentWeekNum={currentWeekNum}
                             name={name}
-                            onClick={(name, week) => this.handleClick(name, week)}
+                            onClick={(name) => this.handleClick(name, undefined)}
                         />
                         <SchduleTable
                             lessons={lessons}
@@ -238,8 +258,7 @@ class Schedule extends React.Component {
                         <hr className="my-0" />
                         <WeekPaginator
                             currentWeekNum={currentWeekNum}
-                            name={name}
-                            onClick={(name, week) => this.handleClick(name, week)}
+                            onClick={(week) => this.handleClick(undefined, week)}
                         />
                     </div>
                 </div>
