@@ -1,9 +1,10 @@
-import CLASS_INFO from './schedule-file';
+import CLASS_INFO from '../configuration/schedule-file';
+import CONFIG from '../configuration/schedule-config';
 
 class ClassInfo {
     constructor(){
         this.WEEKDAY_NUM = 7;
-        this.SECTION_NUM = 13;
+        this.SECTION_NUM = CONFIG.sectionTime.length;
         this.CLASS_INFO = CLASS_INFO;
     }
 

@@ -1,5 +1,40 @@
 const CLASS_INFO = [
     {
+        name: '组会',
+        classList: [
+            {
+                title: '拓扑绝缘体',
+                weekRange: [1,18],
+                time: {
+                    4: {
+                        sectionRange: [11, 13],
+                        address: '物院, 5-213',
+                    },
+                },
+            },
+            {
+                title: '机器学习',
+                weekRange: [1, 18],
+                time: {
+                    2: {
+                        sectionRange: [11, 13],
+                        address: '物院, 5-213',
+                    },
+                },
+            },
+            {
+                title: '凝聚态场论',
+                weekRange: [1, 18],
+                time: {
+                    0: {
+                        sectionRange: [11, 13],
+                        address: '物院, 5-213',
+                    },
+                },
+            },
+        ],
+    },
+    {
         name: '高路路',
         classList: [
             {

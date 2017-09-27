@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ClassInfo from './class-info';
 import ReactTooltip from 'react-tooltip'
+import ClassInfo from './js/class-info';
+import DateTool from './js/date-tool';
 import './css/bootstrap.min.css'
 import './css/mdb.min.css'
 import './css/index.css'
 
 const ci = new ClassInfo();
+const dt = new DateTool();
 
 function Lesson(props) {
     const rowspan = props.rowspan;
@@ -64,7 +66,7 @@ class SchduleTable extends React.Component {
 
     generateTbody() {
         const lessons = this.props.lessons;
-        const sectionTime = getSectionTime();
+        const sectionTime = dt.getSectionTime();
         const d = new Date();
         const currentHour = d.getHours();
         const currentMin = d.getMinutes();
@@ -201,7 +203,7 @@ class Schedule extends React.Component {
         super(props);
         this.state = {
             name: 'all',
-            currentWeekNum: getCurrentWeekNum(),
+            currentWeekNum: dt.getCurrentWeekNum(),
             currentTime: (new Date()).getTime(),
         };
         this.handleClick = this.handleClick.bind(this);
@@ -238,18 +240,20 @@ class Schedule extends React.Component {
     render() {
         const name = this.state.name;
         const currentWeekNum = this.state.currentWeekNum;
-        const lessons = decorateTable(ci.getTableWraper(name, currentWeekNum));
-        const currentWeek = getCurrentWeek(currentWeekNum);
+        const lessons = dt.decorateTable(ci.getTableWraper(name, currentWeekNum));
+        const currentWeek = dt.getCurrentWeek(currentWeekNum);
 
         return (
             <section>
                 <div className="row">
                     <div className="col-12">
+                        {ci.getNames().length > 1 &&
                         <NameButton
                             currentWeekNum={currentWeekNum}
                             name={name}
                             onClick={(name) => this.handleClick(name, undefined)}
                         />
+                        }
                         <SchduleTable
                             lessons={lessons}
                             currentWeek={currentWeek}
@@ -270,83 +274,3 @@ class Schedule extends React.Component {
 
 ReactDOM.render(<Schedule />, document.getElementById("root"));
 
-function getCurrentWeekNum() {
-    const FIRST_SEMESTER_DAY = new Date('2017-09-03');
-    const d = new Date();
-    const currentWeekNum = Math.ceil((d.getTime() - FIRST_SEMESTER_DAY.getTime()) / (7 * 24 * 3600 * 1000))
-    return currentWeekNum;
-}
-
-function getCurrentWeek(weekNum) {
-    const WEEK_DAY_NAME = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const FIRST_SEMESTER_DAY = new Date('2017-09-03');
-    let cd = new Date(FIRST_SEMESTER_DAY.getTime() + (weekNum - 1) * (7 * 24 * 3600 * 1000));
-    let currentWeek = [];
-    for (let i=0; i<7; i++) {
-        currentWeek.push(
-            {
-                name: WEEK_DAY_NAME[i],
-                date: cd.getMonth() + 1 + '.' + cd.getDate(),
-            }
-        );
-        cd = new Date(cd.getTime() + 24 * 3600 * 1000);
-    }
-    return currentWeek;
-}
-
-function getSectionTime() {
-    const sectionTime = [
-        ['08:00', '08:45'],
-        ['08:50', '09:35'],
-        ['09:50', '10:35'],
-        ['10:40', '11:25'],
-        ['11:30', '12:15'],
-        ['14:05', '14:50'],
-        ['14:55', '15:40'],
-        ['15:45', '16:30'],
-        ['16:40', '17:25'],
-        ['17:30', '18:15'],
-        ['18:30', '19:15'],
-        ['19:20', '20:05'],
-        ['20:10', '20:55'],
-    ];
-    return sectionTime;
-}
-
-
-function decorateTable(table) {
-    const AM_SEP = 5;
-    const PM_SEP = 10;
-    const AM_COLOR = 'rgba-cyan';
-    const PM_COLOR = 'rgba-orange';
-    const NT_COLOR = 'rgba-stylish';
-    const HOVER_EFF = 'hoverable';
-    const H_ALIGN = 'text-center';
-    const V_ALIGN = 'align-middle';
-    const weekday = (new Date()).getDay();
-
-    for (let i=0; i<13; i++) {
-        for (let j=0; j<7; j++) {
-            table[i][j].classnames = [];
-            if (table[i][j].rowspan > 1) {
-                table[i][j].classnames.push(H_ALIGN);
-                table[i][j].classnames.push(V_ALIGN);
-                table[i][j].classnames.push(HOVER_EFF);
-            }
-            if (i < AM_SEP) {
-                let suffix = j === weekday ? '-strong' : '-light';
-                table[i][j].classnames.push(AM_COLOR + suffix);
-            }
-            else if (i < PM_SEP) {
-                let suffix = j === weekday ? '-strong' : '-light';
-                table[i][j].classnames.push(PM_COLOR + suffix);
-            }
-            else {
-                let suffix = j === weekday ? '-strong' : '-light';
-                table[i][j].classnames.push(NT_COLOR + suffix);
-            }
-        }
-    }
-
-    return table;
-}
