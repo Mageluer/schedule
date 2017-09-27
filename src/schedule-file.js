@@ -40,12 +40,12 @@ const CLASS_INFO = [
                 title: '硕士英语',
                 weekRange: [1, 18],
                 time: {
-                    1: {
-                        sectionRange: [3, 4],
-                        address: '1区, 枫-312',
-                    },
                     2: {
                         sectionRange: [1, 2],
+                        address: '1区, 枫-312',
+                    },
+                    5: {
+                        sectionRange: [3, 4],
                         address: '1区, 枫-312',
                     },
                 },
@@ -113,12 +113,12 @@ const CLASS_INFO = [
                 title: '硕士英语',
                 weekRange: [1, 18],
                 time: {
-                    1: {
-                        sectionRange: [3, 4],
-                        address: '1区, 枫-312',
-                    },
                     2: {
                         sectionRange: [1, 2],
+                        address: '1区, 枫-312',
+                    },
+                    5: {
+                        sectionRange: [3, 4],
                         address: '1区, 枫-312',
                     },
                 },
