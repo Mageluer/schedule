@@ -3,10 +3,22 @@ a simple class schedule built by [React.js](https://facebook.github.io/react/)
 
 You can view the demo [here](https://mageluer.github.io/schedule/).
 
+**Show Address**
+![class schedule with address](./class-schedule-demo-address.png)
+
+**Show Date**
+![class schedule with date](./class-schedule-demo-date.png)
+
+**Show Time**
+![class schedule with time](./class-schedule-demo-time.png)
+
+**Without Name buttons above if only one person's info is given**
+![class schedule with one person](./class-schedule-demo-one-person.png)
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
-  - [Installation](#Installation)
+  - [Installation](#installation)
     - [Clone this Repo](#clone-this-repo)
     - [Install some tools via NPM](#install-some-tools-via-npm)
     - [Available Scripts](#available-scripts)
@@ -14,7 +26,7 @@ You can view the demo [here](https://mageluer.github.io/schedule/).
       - [npm test](#npm-test)
       - [npm run build](#npm-run-build)
   - [Custumizing you class schedule](#custumizing-you-class-schedule)
-  - [Publish at GitHub Pages](#publish-at-gitHub-pages)
+  - [Publish at GitHub Pages](#publish-at-github-pages)
 - [Author](#author)
 - [License](#license)
 
@@ -167,9 +179,9 @@ The configuration of `schedule-config.js` is as simple as the one above.
 After editing is done, run `npm start` and you get it.
 
 ### Publish at GitHub Pages
-> learn more about [Github](https://github.com/) and [GitHub Pages](https://pages.github.com/)
-> learn more about `Git` is helpful: [Git 基础 - 远程仓库的使用](https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8), [Git远程操作详解](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
-> how to add you local repo to github: [Adding an existing project to GitHub](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
+> learn more about [Github](https://github.com/) and [GitHub Pages](https://pages.github.com/)<br>
+> learn more about `Git` is helpful: [Git 基础 - 远程仓库的使用](https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8), [Git远程操作详解](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)<br>
+> how to add you local repo to github: [Adding an existing project to GitHub](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)<br>
 > Take it easy, all you need to do is such simple thing as following
 1. [Create a new repository](https://help.github.com/articles/creating-a-new-repository/) named **schedule** on GitHub. To avoid errors, do not initialize the new repository with `README`, `license`, or `gitignore` files. You can add these files after your project has been pushed to GitHub.
 2. Open Terminal.
@@ -194,7 +206,7 @@ Open your `package.json` and add a `homepage` field:
   "homepage": "https://myusername.github.io/schedule",
 ```
 
-Create React App uses the `homepage` field to determine the root URL in the built HTML file.
+This React App uses the `homepage` field to determine the root URL in the built HTML file.
 
 #### Step 2: Add `deploy` to `scripts` in `package.json`
 > Note: `deploy` scripts have already been added, you check whether they exist.
