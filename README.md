@@ -27,6 +27,7 @@ You can view the demo [here](https://mageluer.github.io/schedule/).
       - [npm run build](#npm-run-build)
   - [Custumizing you class schedule](#custumizing-you-class-schedule)
   - [Publish at GitHub Pages](#publish-at-github-pages)
+- [Afterwards](#afterwards)
 - [Author](#author)
 - [License](#license)
 
