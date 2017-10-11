@@ -349,7 +349,7 @@ const CLASS_INFO = [
                 title: '武术',
                 weekRange: [6, 18],
                 time: {
-                    2: {
+                    4: {
                         sectionRange: [3, 4],
                         address: '3区, 信操',
                     },
