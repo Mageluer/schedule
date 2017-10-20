@@ -310,16 +310,6 @@ const CLASS_INFO = [
                     },
                 },
             },
-            {
-                title: '学术道德与学术规范',
-                weekRange: [6, 10],
-                time: {
-                    0: {
-                        sectionRange: [1, 13],
-                        address: '未定地点',
-                    },
-                },
-            },
         ],
     },
     {
@@ -346,12 +336,12 @@ const CLASS_INFO = [
                 },
             },
             {
-                title: '武术',
+                title: '足球',
                 weekRange: [6, 18],
                 time: {
                     4: {
                         sectionRange: [3, 4],
-                        address: '3区, 信操',
+                        address: '1区, 桂操',
                     },
                 },
             },
