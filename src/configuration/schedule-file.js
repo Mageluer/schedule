@@ -204,6 +204,16 @@ const CLASS_INFO = [
                 },
             },
             {
+                title: '数据挖掘',
+                weekRange: [10, 18],
+                time: {
+                    5: {
+                        sectionRange: [3, 4],
+                        address: '3区, 2-115',
+                    },
+                },
+            },
+            {
                 title: '广义相对论',
                 weekRange: [1, 18],
                 time: {

@@ -265,7 +265,7 @@ to push it to your github master branch.
 
 And run
 ```sh
-npm deploy
+npm run deploy
 ```
 to publish it online.
 
