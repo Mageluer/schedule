@@ -1,5 +1,5 @@
 const CONFIG = {
-    firstSemesterDay: '2017-09-03', // first day of your semester, begining of the first week
+    firstSemesterDay: '2018-02-25', // first day of your semester, begining of the first week
     totalWeek: 18, // total weeks of the semester
     sectionTime: [ // time range of each class
         ['08:00', '08:45'],
