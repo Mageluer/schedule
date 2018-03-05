@@ -6,7 +6,7 @@ const CLASS_INFO = [
                 title: '拓扑绝缘体',
                 weekRange: [1,18],
                 time: {
-                    4: {
+                    1: {
                         sectionRange: [11, 13],
                         address: '物院, 5-213',
                     },
@@ -16,7 +16,7 @@ const CLASS_INFO = [
                 title: '机器学习',
                 weekRange: [1, 18],
                 time: {
-                    2: {
+                    4: {
                         sectionRange: [11, 13],
                         address: '物院, 5-213',
                     },
@@ -106,6 +106,30 @@ const CLASS_INFO = [
                     },
                 },
             },
+            {
+                title: '量子信息',
+                weekRange: [1, 18],
+                time: {
+                    2: {
+                        sectionRange: [6, 8],
+                        address: '1区, 5-103',
+                    },
+                },
+            },
+            {
+                title: '硕士英语',
+                weekRange: [1, 18],
+                time: {
+                    2: {
+                        sectionRange: [1, 2],
+                        address: '1区, 1-107',
+                    },
+                    5: {
+                        sectionRange: [3, 4],
+                        address: '1区, 1-107',
+                    },
+                },
+            },
         ],
     },
     {
@@ -161,6 +185,16 @@ const CLASS_INFO = [
                     },
                 },
             },
+            {
+                title: '量子信息',
+                weekRange: [1, 18],
+                time: {
+                    2: {
+                        sectionRange: [6, 8],
+                        address: '1区, 5-103',
+                    },
+                },
+            },
         ],
     },
     {
@@ -183,26 +217,6 @@ const CLASS_INFO = [
                     3: {
                         sectionRange: [11, 13],
                         address: '1区, 1-101',
-                    },
-                },
-            },
-            {
-                title: '博士英语',
-                weekRange: [1, 18],
-                time: {
-                    4: {
-                        sectionRange: [1, 2],
-                        address: '1区, 1-107',
-                    },
-                },
-            },
-            {
-                title: '马克思主义与当代02',
-                weekRange: [3, 14],
-                time: {
-                    4: {
-                        sectionRange: [3, 5],
-                        address: '1区, 1-201',
                     },
                 },
             },
@@ -241,18 +255,48 @@ const CLASS_INFO = [
                     },
                 },
             },
+            {
+                title: '二外德语',
+                weekRange: [1, 18],
+                time: {
+                    5: {
+                        sectionRange: [11, 13],
+                        address: '1区, 5-313',
+                    },
+                },
+            },
         ],
     },
     {
         name: '宋峰峰',
         classList: [
             {
-                title: '群论',
-                weekRange: [1,18],
+                title: '桥牌艺术与人生',
+                weekRange: [1,13],
                 time: {
-                    1: {
+                    3: {
                         sectionRange: [11, 13],
-                        address: '1区, 3-304',
+                        address: '1区, 5-211',
+                    },
+                },
+            },
+            {
+                title: '中国文学简史',
+                weekRange: [1,13],
+                time: {
+                    2: {
+                        sectionRange: [6, 8],
+                        address: '1区, 5-206',
+                    },
+                },
+            },
+            {
+                title: '二外日语',
+                weekRange: [1,17],
+                time: {
+                    6: {
+                        sectionRange: [2, 4],
+                        address: '1区, 3-204',
                     },
                 },
             },
