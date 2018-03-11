@@ -272,7 +272,7 @@ const CLASS_INFO = [
         classList: [
             {
                 title: '桥牌艺术与人生',
-                weekRange: [1,13],
+                weekRange: [1, 13],
                 time: {
                     3: {
                         sectionRange: [11, 13],
@@ -282,7 +282,7 @@ const CLASS_INFO = [
             },
             {
                 title: '中国文学简史',
-                weekRange: [1,13],
+                weekRange: [1, 13],
                 time: {
                     2: {
                         sectionRange: [6, 8],
@@ -292,11 +292,31 @@ const CLASS_INFO = [
             },
             {
                 title: '二外日语',
-                weekRange: [1,17],
+                weekRange: [1, 17],
                 time: {
                     6: {
                         sectionRange: [2, 4],
                         address: '1区, 3-204',
+                    },
+                },
+            },
+            {
+                title: '哲学核心问题（形而上学）',
+                weekRange: [1, 13],
+                time: {
+                    4: {
+                        sectionRange: [11, 13],
+                        address: '1区, 1-303',
+                    },
+                },
+            },
+            {
+                title: '中外戏剧文化精粹',
+                weekRange: [2, 10],
+                time: {
+                    6: {
+                        sectionRange: [11, 12],
+                        address: '1区, 4-301',
                     },
                 },
             },
